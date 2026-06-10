@@ -30,8 +30,8 @@ python main.py -t TeamMap.csv -p ProductMaster.csv -s Sales.csv --team-report Te
 
 To ensure this application meets **production-ready** standards, it was designed with memory efficiency and scalability in mind:
 
-1. **Streaming Data Processing:** Rather than loading the potentially massive `Sales.csv` file entirely into memory, the application utilizes a streaming accumulator pattern. It reads the sales data row-by-row, computes the gross revenue and discounts on the fly, updates the reference dictionaries, and immediately discards the row. This ensures the application maintains an O(1) memory footprint regarding the sales data, preventing memory overflows regardless of file size.
-2. **O(1) Dictionary Lookups:** The smaller reference files (Teams and Products) are loaded into dictionaries. This guarantees quick constant-time lookups while iterating through the sales.
+1. **Streaming Data Processing:** Rather than loading the potentially massive `Sales.csv` file entirely into a dictionary, we read the sales data row-by-row, process the data in each iteration, and immediately discards the row. This ensures that our application uses memory efficiently and performs quicker.
+2. **O(1) Dictionary Lookups:** Loading important data into dictionaries guarantees quick constant-time lookups while iterating through the sales.
 3. **Defensive Programming:** The code includes safety checks to gracefully handle bad data (e.g., verifying that a `team_id` or `product_id` found in the sales logs actually exists in the master reference dictionaries before attempting calculations).
 4. **Argparse Implementation:** Built-in `argparse` is used to handle command-line interfaces robustly, providing automatic type checking, help menus, and fallback default values for optional report outputs.
 
