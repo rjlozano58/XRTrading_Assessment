@@ -1,4 +1,4 @@
-# Python Development Challenge - XR Trading
+# XR Trading - Python Assessment
 
 ## Overview
 This is a command-line Python application designed to process and aggregate daily sales data. It reads from three input CSV files (Team Map, Product Master, and Sales) and produces two summarized output CSV reports (Team Report and Product Report). 
@@ -13,7 +13,7 @@ Per the project constraints, this application is built entirely using Python's b
 The application is executed from the command line. It requires three input files to be specified and accepts optional filenames for the generated reports.
 
 **Standard Run Command:**
-```bash
+```
 python main.py -t TeamMap.csv -p ProductMaster.csv -s Sales.csv --team-report TeamReport.csv --product-report ProductReport.csv
 ```
 
